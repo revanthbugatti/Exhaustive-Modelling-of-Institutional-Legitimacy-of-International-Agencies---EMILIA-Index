@@ -23,7 +23,7 @@ dataclasses==0.6
 debugpy==1.5.1
 decorator==5.1.0
 distlib==0.3.3
-Django==3.2.9
+Django>=3.2.10
 docutils==0.18.1
 elasticsearch==7.15.2
 emilia-pkg-Revanth-Uppalapati @ file:///C:/Users/usuma/Desktop/package_emilia/dist/emilia_pkg_Revanth_Uppalapati-0.1.0-py3-none-any.whl
