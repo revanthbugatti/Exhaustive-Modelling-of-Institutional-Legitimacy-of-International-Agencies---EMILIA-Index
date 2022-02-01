@@ -1,21 +1,9 @@
-class emilia:
+class custom:    
 
     def __init__(self,searchstring,searchstrsince,searchstruntil):
         self.searchstring = searchstring
         self.searchstrsince = searchstrsince
         self.searchstruntil = searchstruntil
-    
-    @classmethod
-    def inputs(self):
-        while 1:
-            try:
-                searchstring = input("Enter the name of the Organization : ")
-                searchstrsince = input("Enter the starting date [YYYY-MM-DD]")
-                searchstruntil = input("Enter the ending date [YYYY-MM-DD]")
-                return self(searchstring,searchstrsince,searchstruntil)
-            except:
-                print('Invalid input!')
-                continue
 
     def get_tweets(self):
         import twint
@@ -51,7 +39,7 @@ class emilia:
             tweetlist1 = tw
             tweetlist = tweetlist1.split()
             string_uncleaned = ' '.join(tweetlist)
-            string_uncleaned = BeautifulSoup(string_uncleaned,features="lxml").get_text()
+            string_uncleaned = BeautifulSoup(string_uncleaned).get_text()
             string_emojiless = emoji.get_emoji_regexp().sub(u'',string_uncleaned)
             string_emojiless = re.sub(r"http\S+", "", string_emojiless)
             string_emojiless = re.sub(r"@\S+", "", string_emojiless)
@@ -74,7 +62,7 @@ class emilia:
         result_df = df.groupby(['date']).mean()
         return(result_df)
 
-#emiliaindex = emilia.inputs()
-#emiliaindex.get_tweets()
-#emiliaindex.clean_data()
-#emiliaindex.siamod()
+    #emiliaindex = emilia.inputs()
+    #emiliaindex.get_tweets()
+    #emiliaindex.clean_data()
+    #emiliaindex.siamod()
